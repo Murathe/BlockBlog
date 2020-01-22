@@ -1,9 +1,81 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Blockblog</title>
-<link rel="stylesheet" type="text/css" href="">
-</head>
-<body>
-</body>
-</html>
+{% extends 'base.html'%}
+{% block content %}
+<header class="masthead" style="background-image: url('https://picsum.photos/1900/1267?grayscale'); margin-top: 40px;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+         <h2>BLOG PO$T</h2>
+         <h3>Post It Once; Moneytize It Later</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="card "id="whatwedo">
+  <div class="container-fluid row icons">
+    <div class="icon-1">
+      <img src="{{url_for('static',filename='photos/icon1.jpg')}}" alt="">
+      <h3>SHARE</h3>
+    </div>
+    </div>
+
+    <div class="container-fluid row icons">
+      <div class="icon-2">
+        <img src="{{url_for('static',filename='photos/icon2.jpg')}}" alt="">
+        <h3>CREATE</h3>
+      </div>
+      </div>
+
+      <div class="container-fluid row icons">
+        <div class="icon-3">
+          <img src="{{url_for('static',filename='photos/icon3.jpg')}}" alt="">
+          <h3>MONETIZE</h3>
+        </div>
+        </div>
+
+  </div>
+  
+  <div class=" container-fluid">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        {%for post in posts[::-1]%}
+        <div class="post-preview">
+          <a href="{{url_for('main.post', id = post.id)}}">
+            <h2 class="post-title">
+              {{post.post_title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.post_content | truncate (45) | safe}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="{{url_for('main.profile', id = post.user_id)}}">{{post.post_by}}</a> on
+            {{post.posted_at.strftime('%B %d, %Y')}}
+          </p>
+        </div>
+        <hr>
+        {%endfor%}
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+  </div>
+  
+
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+     
+    </div>
+  </div>
+</div>
+{%endblock%}
