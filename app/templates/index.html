@@ -29,12 +29,12 @@
       </div>
       </div>
 
-      <div class="container-fluid row icons">
+    <div class="container-fluid row icons">
         <div class="icon-3">
-          <img src="{{url_for('static',filename='photos/icon3.jpg')}}" alt="">
-          <h3>MONETIZE</h3>
+            <img src="{{url_for('static',filename='photos/icon3.jpg')}}" alt="">
+            <h3>MONETIZE</h3>
         </div>
-        </div>
+    </div>
 
   </div>
   
@@ -48,23 +48,25 @@
 
     </div>
     <div class="col-md-6">
-        {%for post in posts[::-1]%}
-        <div class="post-preview">
-          <a href="{{url_for('main.post', id = post.id)}}">
-            <h2 class="post-title">
-              {{post.post_title}}
-            </h2>
-            <h3 class="post-subtitle">
-              {{post.post_content | truncate (45) | safe}}
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-            <a href="{{url_for('main.profile', id = post.user_id)}}">{{post.post_by}}</a> on
-            {{post.posted_at.strftime('%B %d, %Y')}}
-          </p>
-        </div>
-        <hr>
-        {% endfor %}
+
+      {% for post in posts[::-1]%}
+      <div class="post-preview">
+        <a href="{{url_for('main.post', id = post.id)}}">
+          <h2 class="post-title">
+            {{post.post_title}}
+          </h2>
+          <h3 class="post-subtitle">
+            {{post.post_content | truncate (45) | safe}}
+          </h3>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="{{url_for('main.profile', id = post.user_id)}}">{{post.post_by}}</a> on
+          {{post.posted_at.strftime('%B %d, %Y')}}
+        </p>
+      </div>
+      <hr>
+      {% endfor%}
+
 
     </div>
     <div class="col-md-3">
@@ -82,10 +84,20 @@
       <a href=""><i class="fab fa-facebook"></i></a>
       <a href=""><i class="fab fa-twitter"></i></a>
 
+</div>
+
+<!-- Foter-->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+ 
     </div>
     <h5>BLOCK BLOG</h5>
       <h6>2020</h6>
 
   </div>
+</div>
+
 
 {% endblock %}
+

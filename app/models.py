@@ -61,7 +61,7 @@ class User(UserMixin, db.Model):
 
     # string representaion to print out a row of a column, important in debugging
     def __repr__(self):
-        return f"User {self.username}"
+        return f" User {self.username} "
     
 class Post(db.Model):
     __tablename__ = "posts"
