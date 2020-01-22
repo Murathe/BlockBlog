@@ -22,4 +22,8 @@ class SignUpForm(FlaskForm):
         if User.query.filter_by(email = data_field.data).first():
             raise ValidationError('Email already registered')
 
-    
+class LoginForm(FlaskForm):
+    email = StringField('Email Address', validators=[Required(), Email()])
+    password = PasswordField('Password', validators=[Required()])
+    remember_me = BooleanField('Remember Me')
+    submit = SubmitField('Log In')
