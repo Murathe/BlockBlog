@@ -21,12 +21,8 @@
   <!-- Custom styles for this template -->
   <link href="{{ url_for('static', filename='css/clean-blog.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
-  <link rel="icon" href="{{url_for('static', filename = 'favicon/favicon.png')}}" type="img/jpg">
-
 </head>
-
 <body>
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #000;">
     <a class="navbar-brand" href="/" style="font-family: 'Major Mono Display' ; font-size: 30px">Avechi</a>
@@ -34,18 +30,17 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        {%if current_user.is_authenticated%}
+        {% if current_user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" href="/post/new">Create Post</a>
         </li>
-        {%endif%}
+        {% endif %}
       </ul>
       <div class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
-          {%if current_user.is_authenticated%}
+          {% if current_user.is_authenticated %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -54,10 +49,10 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{url_for('main.profile', id = current_user.id)}}">Profile</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a>
+              <a class="dropdown-item" href="{{url_for('auth.logout')}}">Sign Out</a>
             </div>
           </li>
-          {%else%}
+          {% else %}
           <form class="form-inline my-2 my-lg-0" method="POST">
             <input class="form-control mr-sm-2" type="email" placeholder="Email" name="subscriber" required>
             <button class="btn btn-outline-info btn-sm" type="submit" style="padding: 8px;">Subscribe</button>
@@ -65,14 +60,14 @@
           <li class="nav-item">
             <a class="nav-link" href="/authenticate/login">Login</a>
           </li>
-          {%endif%}
+          {% endif %}
         </ul>
       </div>
     </div>
   </nav>
 
-  {%block content%}
-  {%endblock%}
+  {% block content%}
+  {% endblock%}
 
   <!-- Footer -->
   <footer>
