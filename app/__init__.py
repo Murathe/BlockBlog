@@ -21,3 +21,13 @@ def create_app(config_name):
     app = Flask(__name__)
 
     # Initialize flask extensions
+    db.init_app(app)
+    login_manager.init_app(app)
+    mail.init_app(app)
+    bootstrap.init_app(app)
+    admin.init_app(app)
+
+
+    # Register main blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(auth_blueprint, url_prefix = '/authenticate')
