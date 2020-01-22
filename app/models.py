@@ -38,4 +38,28 @@ class User(UserMixin, db.Model):
 
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
+    
+    # User like logic
+    def like_post(self, post):
+        if not self.has_liked_post(post):
+            like = PostLike(user_id = self.id, post_id = post.id)
+            db.session.add(like)
+
+    # User dislike logic
+    def unlike_post(self, post):
+        if self.has_liked_post(post):
+            PostLike.query.filter_by(
+                user_id = self.id,
+                post_id = post.id).delete()
+
+    # Check if user has liked post
+    def has_liked_post(self, post):
+        return PostLike.query.filter(
+            PostLike.user_id == self.id,
+            PostLike.post_id == post.id).count() > 0
+
+    # string representaion to print out a row of a column, important in debugging
+    def __repr__(self):
+        return f"User {self.username}"
+
 
