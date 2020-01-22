@@ -12,6 +12,11 @@ class SignUpForm(FlaskForm):
     password_confirm = PasswordField('Confirm your password', validators=[Required()])
     submit = SubmitField('Sign Up')
 
+    # verify username existence/taken
+    def validate_username(self, data_field):
+        if User.query.filter_by(username = data_field.data).first():
+            raise ValidationError('Username not available')
+
     # Verify email validity on db
     def validate_email(self, data_field):
         if User.query.filter_by(email = data_field.data).first():
