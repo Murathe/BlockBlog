@@ -14,36 +14,31 @@
   </div>
 </header>
 
-<div class="card "id="whatwedo">
-  <div class="container-fluid row icons">
+<div class="row"id="whatwedo">
+  <div class="container"class="icons">
     <div class="icon-1">
-      <img src="{{url_for('static',filename='photos/icon1.jpg')}}" alt="">
+      <i class="fa fa-share-alt fa-3x"></i>
       <h3>SHARE</h3>
     </div>
-    </div>
+    
 
     <div class="container-fluid row icons">
       <div class="icon-2">
-        <img src="{{url_for('static',filename='photos/icon2.jpg')}}" alt="">
+        <i class="fa fa-user-edit fa-3x"></i>
         <h3>CREATE</h3>
       </div>
       </div>
 
     <div class="container-fluid row icons">
         <div class="icon-3">
-            <img src="{{url_for('static',filename='photos/icon3.jpg')}}" alt="">
+          <i class="fa fa-money-bill-wave fa-3x"></i>
             <h3>MONETIZE</h3>
         </div>
     </div>
-
+  </div>
   </div>
   
-  <div class=" container-fluid">
-    <div class="col-md-3">
-     
-
-    </div>
-    <div class="col-md-6">
+    <div class="col-md-9" id="content">
 
       {% for post in posts[::-1]%}
       <div class="post-preview">
@@ -65,31 +60,11 @@
 
 
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3" id="topics">
        
     </div>
   </div>
   
-<!-- Footer -->
-  <div class="card" id= "social">
-    <div class="row id="social-icons>
-      <a href=""><i class="fab fa-instagram"></i></a>
-      <a href=""><i class="fab fa-facebook"></i></a>
-      <a href=""><i class="fab fa-twitter"></i></a>
-
-</div>
-
-<!-- Foter-->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
- 
-    </div>
-    <h5>BLOCK BLOG</h5>
-      <h6>2020</h6>
-
-  </div>
-</div>
 
 
 {% endblock %}
