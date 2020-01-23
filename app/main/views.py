@@ -11,6 +11,10 @@ from .. import db
 from ..email import welcome_message, notification_message
 # from app import models
 from app.models import Lifestyle
+from app.models import Food
+from app.models import Travel
+from app.models import Sports
+from app.models import Fitness
 
 @main.route("/", methods = ["GET", "POST"])
 def index():
@@ -168,4 +172,28 @@ def update_profile(id):
 @login_required
 def lifestyle_list():
     list = Lifestyle.query.all()
+    print(list)
+    
+@main.route("/food")
+@login_required
+def food_list():
+    list = Food.query.all()
+    print(list)
+    
+@main.route("/travel")
+@login_required
+def travel_list():
+    list = Travel.query.all()
+    print(list)
+    
+@main.route("/sports")
+@login_required
+def sports_list():
+    list = Sports.query.all()
+    print(list)
+    
+@main.route("/fitness")
+@login_required
+def fitness_list():
+    list = Fitness.query.all()
     print(list)

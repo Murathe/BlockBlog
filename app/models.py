@@ -141,7 +141,20 @@ class  Food(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     content = db.Column(db.String(255))
     
-class TRavel
+class  Travel(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    content = db.Column(db.String(255))
+    
+class  Sports(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    content = db.Column(db.String(255))
+    
+class  Fitness(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    content = db.Column(db.String(255))
+    
+    
+
     
 
 
