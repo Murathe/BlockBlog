@@ -10,6 +10,7 @@ import bleach
 from .. import db
 from ..email import welcome_message, notification_message
 # from app import models
+from app.models import Lifestyle
 
 @main.route("/", methods = ["GET", "POST"])
 def index():
@@ -160,3 +161,11 @@ def update_profile(id):
     return render_template("profile/update.html",
                             user = user,
                             form = form)
+    
+
+    
+@main.route("/lifestyle")
+@login_required
+def lifestyle_list():
+    list = Lifestyle.query.all()
+    print(list)
