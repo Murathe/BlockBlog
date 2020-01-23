@@ -60,7 +60,27 @@
 
 
     </div>
-    <div class="col-md-3" id="topics">
+    <div class="col-md-3" id="blogs">
+      <div class="sidebar">
+        <div class="section search">
+          <h2 class="section-title">
+          <form action="index.html" method="POST">
+            <input type="text" name=""search-term" class="text-input" placeholder="Search for blog"">
+          </form>
+        </div>
+
+          <div class="section blogs">
+            <h2 class="section-title">Blog Categories</h2>
+            <ul>
+              <li><a href="{{url_for('main.lifestyle')}}"></a>Lifestyle BLogs</li>
+              <li><a href="{{url_for('main.food')}}"></a>Food BLogs</li>
+              <li><a href="{{url_for('main.travel')}}"></a>Travel BLogs</li>
+              <li><a href="{{url_for('main.fitness')}}"></a>Fitness BLogs</li>
+              <li><a href="{{url_for('main.sports')}}"></a>Sports BLogs</li>
+            </ul>
+          </div>
+
+      </div>
        
     </div>
   </div>
