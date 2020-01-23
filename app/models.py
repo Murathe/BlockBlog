@@ -133,7 +133,29 @@ class PostLike(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     post_id = db.Column(db.Integer, db.ForeignKey("posts.id"))
 
+class Lifestyle(db.Model):
+    id = db.Column(db.Integer,primary_key =True)
+    content = db.Column(db.String(255))
+    
+class  Food(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    content = db.Column(db.String(255))
+    
+class  Travel(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    content = db.Column(db.String(255))
+    
+class  Sports(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    content = db.Column(db.String(255))
+    
+class  Fitness(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    content = db.Column(db.String(255))
+    
+    
 
+    
 
 
 

@@ -1,61 +1,88 @@
 {% extends 'base.html'%}
 {% block content %}
-  <header class="masthead" style="margin-top: 40px;">
-    <div class=""></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-          <h2>BLOG PO$T</h2>
-          <h3>Post It Once; Moneytize It Later</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <div class="card "id="whatwedo">
-    <div class=" container-fluid">
-      <div class="col-md-3">
-        <!--empty-->
-      </div>
-      <div class="col-md-6">
-        {% for post in posts[::-1]%}
-          <div class="post-preview">
-            <a href="{{url_for('main.post', id = post.id)}}">
-              <h2 class="post-title">
-                {{post.post_title}}
-              </h2>
-              <h3 class="post-subtitle">
-                {{post.post_content | truncate (45) | safe}}
-              </h3>
-            </a>
-            <p class="post-meta">Posted by
-              <a href="{{url_for('main.profile', id = post.user_id)}}">{{post.post_by}}</a> on
-              {{post.posted_at.strftime('%B %d, %Y')}}
-            </p>
-          </div>
-          <hr>
-        {% endfor%}
-      </div>
-      <div class="col-md-3">
-        <!--empty-->
-      </div>
-    </div>
-    
-  <!-- Footer -->
-    <div class="card" id= "social">
-      <div class="row id="social-icons>
-        <a href=""><i class="fab fa-instagram"></i></a>
-        <a href=""><i class="fab fa-facebook"></i></a>
-        <a href=""><i class="fab fa-twitter"></i></a>
-      </div>
+<div class="container text-center">
+
+<header class="masthead" style="background-image: url('https://picsum.photos/1900/1267?grayscale'); margin-top: 40px;">
+  
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+         <h2>BLOG PO$T</h2>
+         <h3>Post It Once; Moneytize It Later</h3>
+        </div>
       </div>
-      <h5>BLOCK BLOG</h5>
-      <h6>2020</h6>
     </div>
   </div>
-{% endblock %}
+</header>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="icon-1">
+        <i class="fa fa-share-alt fa-3x"></i>
+        <h3>SHARE</h3>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="icon-2">
+        <i class="fa fa-user-edit fa-3x"></i>
+        <h3>CREATE</h3>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="icon-3">
+        <i class="fa fa-money-bill-wave fa-3x"></i>
+          <h3>MONETIZE</h3>
+      </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-7">
+
+      {% for post in posts[::-1]%}
+      <div class="post-preview">
+        <a href="{{url_for('main.post', id = post.id)}}">
+          <h2 class="post-title">
+            {{post.post_title}}
+          </h2>
+          <h3 class="post-subtitle">
+            {{post.post_content | truncate (45) | safe}}
+          </h3>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="{{url_for('main.profile', id = post.user_id)}}">{{post.post_by}}</a> on
+          {{post.posted_at.strftime('%B %d, %Y')}}
+        </p>
+      </div>
+      <hr>
+      {% endfor%}
+
+    </div>
+    <div class="col-md-5">
+      <div class="sidebar">
+        <div class="section search">
+          <h2 class="section-title">
+          <form action="index.html" method="POST">
+            <input type="text" name=""search-term" class="text-input" placeholder="Search for blog"">
+          </form>
+        </div>
+
+          <div class="section blogs">
+            <h2 class="section-title">Blog Categories</h2>
+            <ul>
+              <li><a href="{{url_for('main.lifestyle_list')}}"></a>Lifestyle Blogs</li>
+              <li><a href="{{url_for('main.food_list')}}"></a>Food Blogs</li>
+              <li><a href="{{url_for('main.travel_list')}}"></a>Travel Blogs</li>
+              <li><a href="{{url_for('main.sports_list')}}"></a>Sports Blogs</li>
+              <li><a href="{{url_for('main.fitness_list')}}"></a>Fitness Blogs</li>
+
+             
+            </ul>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+  
+{% endblock %}
