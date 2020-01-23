@@ -9,6 +9,7 @@ from datetime import datetime
 import bleach
 from .. import db
 from ..email import welcome_message, notification_message
+# from app import models
 
 @main.route("/", methods = ["GET", "POST"])
 def index():
@@ -20,9 +21,7 @@ def index():
         db.session.commit()
         welcome_message("Thank you for subscribing to the Bloc $ blog", 
                         "email/welcome", new_sub.email)
-    return render_template("index.html",
-                            posts = posts,
-                            quote = quote)
+    return render_template("index.html", posts = posts)
 
 @main.route("/post/<int:id>", methods = ["POST", "GET"])
 def post(id):
