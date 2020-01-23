@@ -1,3 +1,7 @@
+{% extends "base.html"%}
+{% import "bootstrap/wtf.html" as wtf%}
+{% block content%}f %}
+
 <div class="row">
 
 <div class="card">
@@ -10,13 +14,15 @@
         </p>
         <hr>
         <form>
-            {{wtf.quick_form(login_form)}}
+            {{ wtf.quick_form(login_form) }}
             
             <div class="col-md-6 text-right">
                 <a class="small" href="#">Forgot password?</a>
+                <p class="text-center">Not a member? <a href="/authenticate/signup">Sign Up</a></p>
             </div>                                            
             </div> <!-- .row// -->                                                                  
         </form>
     </article>
 </div> <!-- card.// -->
 </div> <!-- row.// -->
+{% endblock %}

@@ -22,7 +22,7 @@ def register():
        
         return redirect(url_for("auth.login"))
     title = "Sign Up to 60 Seconds"
-    return render_template("auth/signup.html", 
+    return render_template("signup.html", 
                             signup_form = signup_form,
                             title = title)
 
@@ -38,7 +38,7 @@ def login():
         flash("Invalid Username or Password")
     
     title = "Login to 60 Seconds"
-    return render_template("auth/login.html",
+    return render_template("login.html",
                             login_form = login_form,
                             title = title)
 
