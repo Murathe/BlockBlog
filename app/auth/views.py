@@ -8,7 +8,7 @@ from .. import db
 
 
 @auth.route("/signup", methods = ["GET", "POST"])
-def register():
+def signup():
     signup_form = SignUpForm()
     if signup_form.validate_on_submit():
         user = User(first_name = signup_form.first_name.data,
@@ -18,13 +18,10 @@ def register():
                     password = signup_form.password.data)
         db.session.add(user)
         db.session.commit()
-
        
-        return redirect(url_for("auth.login"))
-    title = "Sign Up to 60 Seconds"
-    return render_template("signup.html", 
-                            signup_form = signup_form,
-                            title = title)
+        return redirect(url_for("auth.login")) 
+    title = "Sign Up"
+    return render_template("signup.html", signup_form = signup_form, title = title)
 
 @auth.route("/login", methods = ["GET", "POST"])
 def login():
@@ -37,10 +34,8 @@ def login():
 
         flash("Invalid Username or Password")
     
-    title = "Login to 60 Seconds"
-    return render_template("login.html",
-                            login_form = login_form,
-                            title = title)
+    title = "Login to 60 Seconds" 
+    return render_template("login.html", login_form = login_form, title = title)
 
 @auth.route("/logout")
 @login_required
