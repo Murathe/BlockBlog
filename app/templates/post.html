@@ -84,7 +84,7 @@
                     </div>
                     {% endfor%}
                     <br>
-                    <div class="make-comment">
+                    <div class="make-comment" id="comm">
                         <form class="form-group mt-2" method="POST">
                             {{comment_form.hidden_tag()}}
                             {{comment_form.alias(class = "form-control", placeholder = "Enter a nickname")}}
