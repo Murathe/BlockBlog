@@ -9,18 +9,38 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h2>BLOCK $ BLOG</h2>
-            <h3 text-white>Post It Once; Monetize It Later</h3>
+          <h2>BLOG PO$T</h2>
+          <h3>Post It Once to Moneytize</h3>
+
           </div>
         </div>
       </div>
     </div>
   </header>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="icon-1">
-        <i class="fa fa-share-alt fa-3x"></i>
-        <h3>SHARE</h3>
+  <div class="card "id="whatwedo">
+    <div class=" container-fluid">
+      <div class="col-md-3">
+        <!--empty-->
+      </div>
+      <div class="col-md-6">
+        {% for post in posts[::-1]%}
+          <div class="post-preview">
+            <a href="{{url_for('main.post', id = post.id)}}">
+              <h2 class="post-title">
+                {{post.post_title}}
+              </h2>
+              <h3 class="post-subtitle">
+                {{post.post_content | truncate (100) | safe}}
+              </h3>
+            </a>
+            <p class="post-meta">Posted by
+              <a href="{{url_for('main.profile', id = post.user_id)}}">{{post.post_by}}</a> on
+              {{post.posted_at.strftime('%B %d, %Y')}}
+            </p>
+          </div>
+          <hr>
+        {% endfor%}
+
       </div>
     </div>
     <div class="col-md-4">
@@ -29,6 +49,9 @@
         <h3>CREATE</h3>
       </div>
     </div>
+
+{% endblock %}
+
     <div class="col-md-4">
       <div class="icon-3">
         <i class="fa fa-money-bill-wave fa-3x"></i>

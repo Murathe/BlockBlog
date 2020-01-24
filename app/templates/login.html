@@ -2,21 +2,45 @@
 {% import "bootstrap/wtf.html" as wtf%}
 {% block content%}
 <br><br><br>
-<div class="container">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                {% for message in get_flashed_messages()%}
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{message}}
+<div class="container-fluid" style="background-image: url('')">
+    <div class="login" style="margin-top: 20vh;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <p>
+                        <a href="https://twitter.com/login" class="btn btn-block btn-info btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                        <a href="https://beta.steemconnect.com/login" class="btn btn-block btn-info btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via steemconnect</a>
+                        <a href="https://en-gb.facebook.com/login/" class="btn btn-block btn-info btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+                    </p>
                 </div>
-                {% endfor%}
-                {{wtf.quick_form(login_form)}}
-                <p class="text-center">Not a member? <a href="{{url_for('auth.signup')}}">Sign Up</a></p>
+                <div class="col-md-4"></div>
             </div>
-            <div class="col-md-2"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+                    <p style="margin-left: 3.5vw;">OR</p>
+                </div>
+                <div class="col-md-5"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    {% for message in get_flashed_messages()%}
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{message}}
+                        </div>
+                    {% endfor%}
+                        {{wtf.quick_form(login_form)}}
+                    <p class="text-center">Not a member? <a href="{{url_for('auth.signup')}}">Sign Up</a></p>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
         </div>
     </div>
 </div>
